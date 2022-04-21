@@ -1,102 +1,135 @@
 const food = [
   {
     title: "Зайрмаг",
-    img: "img/icecream.png",
+    img: "images/cardImages/icecream.png",
     discount: "30%",
     category: "Хямдралтай",
     price: "4760₮",
   },
   {
     title: "Панкейк",
-    img: "img/pancake.png",
+    img: "images/cardImages/pancake.png",
     discount: "20%",
     category: "Хямдралтай",
     price: "4800₮",
   },
   {
     title: "Өглөөний хоолг",
-    img: "img/breakfast.png",
+    img: "images/cardImages/breakfast.png",
     discount: "20%",
     category: "Хямдралтай",
     price: "4800₮",
   },
   {
     title: "Банана сендвич",
-    img: "img/pic.png",
+    img: "images/cardImages/bananas.png",
     discount: "20%",
     category: "Хямдралтай",
     price: "4800₮",
   },
   {
     title: "Салмон загас",
-    img: "img/salmon.png",
+    img: "images/cardImages/salmon.png",
     price: "11,800₮",
     category: "Үндсэн хоол",
   },
   {
     title: "Бөөрөнхий мах",
-    img: "img/meatball.png",
+    img: "images/cardImages/meatball.png",
     price: "14,000₮",
     category: "Үндсэн хоол",
   },
   {
     title: "Самрын нухаш",
-    img: "img/peanut.png",
+    img: "images/cardImages/peanut.png",
     price: "9800₮",
     category: "Үндсэн хоол",
   },
   {
     title: "Чикен бургер",
-    img: "img/burger.png",
+    img: "images/cardImages/burger.png",
     price: "4800₮",
     category: "Үндсэн хоол",
   },
   {
     title: "Детокс салад",
-    img: "img/salad.png",
+    img: "images/cardImages/salad.png",
     price: "6800₮",
     category: "Салад ба зууш",
   },
   {
     title: "Кобб салад",
-    img: "img/saladkobb.png",
+    img: "images/cardImages/saladkobb.png",
     price: "6800₮",
     category: "Салад ба зууш",
   },
   {
     title: "Авакадо салад",
-    img: "img/saladavacado.png",
+    img: "images/cardImages/saladavacado.png",
     price: "6800₮",
     category: "Салад ба зууш",
   },
   {
     title: "Сендвич",
-    img: "img/sendvich.png",
+    img: "images/cardImages/sendvich.png",
     price: "4800₮",
     category: "Салад ба зууш",
   },
   {
     title: "Донатс",
-    img: "img/donuts.png",
+    img: "images/cardImages/donuts.png",
     price: "5800₮",
     category: "Амттан",
   },
   {
     title: "Орео дессерт",
-    img: "img/oreodessert.png",
+    img: "images/cardImages/oreodessert.png",
     price: "7800₮",
     category: "Амттан",
   },
   {
     title: "Вафли",
-    img: "img/vavli.png",
+    img: "images/cardImages/vavli.png",
     price: "5800₮",
     category: "Амттан",
   },
   {
     title: "Макрон",
-    img: "img/makron.png",
+    img: "images/cardImages/makron.png",
     price: "3800₮",
     category: "Амттан",
   },
 ];
+
+let mainFood = "";
+let dessert = "";
+let salad = "";
+let discount = "";
+
+for (let i = 0; i < food.length; i++) {
+  if (food[i].category == "Хямдралтай") {
+    discount += `<img src='${food[i].img}'>
+   <h3>${food[i].title}</h3>
+   <p>${food[i].price}</p>   `;
+  } else if (food[i].category == "Үндсэн хоол") {
+    mainFood += `<img src='${food[i].img}'>
+    <h3>${food[i].title}</h3>
+    <p>${food[i].price}</p>   `;
+  } else if (food[i].category == "Салад ба зууш") {
+    salad += `<img src='${food[i].img}'>
+    <h3>${food[i].title}</h3>
+    <p>${food[i].price}</p>   `;
+  } else if (food[i].category == "Амттан") {
+    dessert += `<img src='${food[i].img}'>
+    <h3>${food[i].title}</h3>
+    <p>${food[i].price}</p>   `;
+  }
+}
+
+document.querySelector(".discount").innerHTML = discount;
+
+document.querySelector(".main-food").innerHTML = mainFood;
+
+document.querySelector(".salad").innerHTML = salad;
+
+document.querySelector(".dessert").innerHTML = dessert;
