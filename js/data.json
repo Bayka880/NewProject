@@ -1,0 +1,113 @@
+[
+  {
+    "title": "Зайрмаг",
+    "img": "images/cardImages/icecream.png",
+    "discount": 30,
+    "category": "Хямдралтай",
+    "price": 4760
+  },
+  {
+    "title": "Панкейк",
+    "img": "images/cardImages/pancake.png",
+    "discount": 20,
+    "category": "Хямдралтай",
+    "price": 4800
+  },
+  {
+    "title": "Өглөөний хоол",
+    "img": "images/cardImages/breakfast.png",
+    "discount": 20,
+    "category": "Хямдралтай",
+    "price": 4800
+  },
+  {
+    "title": "Банана сендвич",
+    "img": "images/cardImages/bananas.png",
+    "discount": 20,
+    "category": "Хямдралтай",
+    "price": 4800
+  },
+  {
+    " title": "Салмон загас",
+    "img": "images/cardImages/salmon.png",
+    "price": 11800,
+    "category": "Үндсэн хоол"
+  },
+  {
+    "title": "Бөөрөнхий мах",
+    "img": "images/cardImages/meatball.png",
+    "price": 14000,
+    "discount": 0,
+    "category": "Үндсэн хоол"
+  },
+  {
+    "title": "Самрын нухаш",
+    "img": "images/cardImages/peanut.png",
+    "price": 9800,
+    "discount": 0,
+    "category": "Үндсэн хоол"
+  },
+  {
+    "title": "Чикен бургер",
+    "img": "images/cardImages/burger.png",
+    "price": 4800,
+    "discount": 0,
+    "category": "Үндсэн хоол"
+  },
+  {
+    "title": "Детокс салад",
+    "img": "images/cardImages/salad.png",
+    "price": 6800,
+    "discount": 0,
+    "category": "Салад ба зууш"
+  },
+  {
+    "title": "Кобб салад",
+    "img": "images/cardImages/saladkobb.png",
+    "price": 6800,
+    "discount": 0,
+    "category": "Салад ба зууш"
+  },
+  {
+    "title": "Авакадо салад",
+    "img": "images/cardImages/saladavacado.png",
+    "price": 6800,
+    "discount": 0,
+    "category": "Салад ба зууш"
+  },
+  {
+    "title": "Сендвич",
+    "img": "images/cardImages/sendvich.png",
+    "price": 4800,
+    "discount": 0,
+    "category": "Салад ба зууш"
+  },
+  {
+    "title": "Донатс",
+    "img": "images/cardImages/donuts.png",
+    "price": 5800,
+    "discount": 0,
+    "category": "Амттан"
+  },
+  {
+    "title": "Орео дессерт",
+    "img": "images/cardImages/oreodessert.png",
+    "price": 7800,
+    "discount": 0,
+    "category": "Амттан"
+  },
+  {
+    "title": "Вафли",
+    "img": "images/cardImages/vavli.png",
+    "price": 5800,
+    "discount": 0,
+    "category": "Амттан"
+  },
+  {
+    "title": "Макрон",
+    "img": "images/cardImages/makron.png",
+    "price": 3800,
+    "discount": 0,
+    "category": "Амттан"
+  }
+]

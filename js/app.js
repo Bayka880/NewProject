@@ -1,135 +1,35 @@
-const food = [
-  {
-    title: "Зайрмаг",
-    img: "images/cardImages/icecream.png",
-    discount: "30%",
-    category: "Хямдралтай",
-    price: "4760₮",
-  },
-  {
-    title: "Панкейк",
-    img: "images/cardImages/pancake.png",
-    discount: "20%",
-    category: "Хямдралтай",
-    price: "4800₮",
-  },
-  {
-    title: "Өглөөний хоолг",
-    img: "images/cardImages/breakfast.png",
-    discount: "20%",
-    category: "Хямдралтай",
-    price: "4800₮",
-  },
-  {
-    title: "Банана сендвич",
-    img: "images/cardImages/bananas.png",
-    discount: "20%",
-    category: "Хямдралтай",
-    price: "4800₮",
-  },
-  {
-    title: "Салмон загас",
-    img: "images/cardImages/salmon.png",
-    price: "11,800₮",
-    category: "Үндсэн хоол",
-  },
-  {
-    title: "Бөөрөнхий мах",
-    img: "images/cardImages/meatball.png",
-    price: "14,000₮",
-    category: "Үндсэн хоол",
-  },
-  {
-    title: "Самрын нухаш",
-    img: "images/cardImages/peanut.png",
-    price: "9800₮",
-    category: "Үндсэн хоол",
-  },
-  {
-    title: "Чикен бургер",
-    img: "images/cardImages/burger.png",
-    price: "4800₮",
-    category: "Үндсэн хоол",
-  },
-  {
-    title: "Детокс салад",
-    img: "images/cardImages/salad.png",
-    price: "6800₮",
-    category: "Салад ба зууш",
-  },
-  {
-    title: "Кобб салад",
-    img: "images/cardImages/saladkobb.png",
-    price: "6800₮",
-    category: "Салад ба зууш",
-  },
-  {
-    title: "Авакадо салад",
-    img: "images/cardImages/saladavacado.png",
-    price: "6800₮",
-    category: "Салад ба зууш",
-  },
-  {
-    title: "Сендвич",
-    img: "images/cardImages/sendvich.png",
-    price: "4800₮",
-    category: "Салад ба зууш",
-  },
-  {
-    title: "Донатс",
-    img: "images/cardImages/donuts.png",
-    price: "5800₮",
-    category: "Амттан",
-  },
-  {
-    title: "Орео дессерт",
-    img: "images/cardImages/oreodessert.png",
-    price: "7800₮",
-    category: "Амттан",
-  },
-  {
-    title: "Вафли",
-    img: "images/cardImages/vavli.png",
-    price: "5800₮",
-    category: "Амттан",
-  },
-  {
-    title: "Макрон",
-    img: "images/cardImages/makron.png",
-    price: "3800₮",
-    category: "Амттан",
-  },
-];
+const greateFood = (arr, container) => {
+  let html = document.querySelector(container);
 
-let mainFood = "";
-let dessert = "";
-let salad = "";
-let discount = "";
+  arr.map((item) => {
+    let food = `  <div class='col-md-3'>
+  <div class="image"><img src="${item.img}" alt="zurag" /></div>
+  <div class="col"><h3>${item.title}</h3></div>
+  <div class="col">${item.price}</div>
+  </div>
+`;
 
-for (let i = 0; i < food.length; i++) {
-  if (food[i].category == "Хямдралтай") {
-    discount += `<img src='${food[i].img}'>
-   <h3>${food[i].title}</h3>
-   <p>${food[i].price}</p>   `;
-  } else if (food[i].category == "Үндсэн хоол") {
-    mainFood += `<img src='${food[i].img}'>
-    <h3>${food[i].title}</h3>
-    <p>${food[i].price}</p>   `;
-  } else if (food[i].category == "Салад ба зууш") {
-    salad += `<img src='${food[i].img}'>
-    <h3>${food[i].title}</h3>
-    <p>${food[i].price}</p>   `;
-  } else if (food[i].category == "Амттан") {
-    dessert += `<img src='${food[i].img}'>
-    <h3>${food[i].title}</h3>
-    <p>${food[i].price}</p>   `;
+    html.innerHTML += food;
+  });
+};
+
+const xhrFood = new XMLHttpRequest();
+xhrFood.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    const datas = JSON.parse(this.responseText);
+    let mainFood = datas.filter((food) => food.category == "Үндсэн хоол");
+
+    let dessert = datas.filter((food) => food.category == "Амттан");
+
+    let salad = datas.filter((food) => food.category == "Салад ба зууш");
+
+    let discount = datas.filter((food) => food.discount > 0);
+    greateFood(discount, "#discount-row");
+    greateFood(mainFood, "#mainDish-row");
+    greateFood(salad, "#salad-row");
+    greateFood(dessert, "#dessert-row");
   }
-}
+};
+xhrFood.open("GET", "/js/data.json", true);
 
-document.querySelector(".discount").innerHTML = discount;
-
-document.querySelector(".main-food").innerHTML = mainFood;
-
-document.querySelector(".salad").innerHTML = salad;
-
-document.querySelector(".dessert").innerHTML = dessert;
+xhrFood.send();
